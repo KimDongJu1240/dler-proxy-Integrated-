@@ -1,0 +1,370 @@
+/* NOT USE */
+:root {
+  --bg-color:#FFFEFE;
+  --white: #ffffff;
+  --green:#2DB400;
+  --green_light:#e1fbd9;
+  --gray: #514e4e;
+  --gray_light:#F5F5F6;
+  --black:#000000;
+  --black_light: #1d1d20;
+  --mont: 'Montserrat', sans-serif;
+  --noto: 'Noto Sans KR', sans-serif;
+}
+
+/* background */
+body {
+  background-color: var(--bg-color);
+}
+
+
+/* CENTER */
+/* display: flex; */
+/* justify-content: center; */
+/* align-items: center; */
+/* text-align: center; */
+
+/* if position == absolute:  */
+/* left:0;
+right:0; 
+margin-left:auto;
+margin-right:auto;  */
+
+
+
+/* ---header--- */
+header {
+  /* header organize */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: center;
+  text-align: center;
+  margin-top: 25px;
+}
+
+header .logo {
+  /* LOGO position */
+  cursor: pointer;
+  line-height: 30px;
+  margin-right: 90px;
+}
+
+header span {
+  /* LOGO "Dler KeY" */
+  color: var(--black);
+  text-align: center;
+  font-family: var(--mont);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+header .logo > .h1Green {
+  /* LOGO "KeY" */
+  color: var(--green);
+}
+
+header .container {
+  /* header navi organize */
+  display: flex;
+  gap: 60px;
+}
+
+header .container a {
+  /* header navi text style */
+  color: var(--black);
+  font-family: var(--mont);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ---main article--- */
+main section .article{
+  /* main text organize */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 65px;
+}
+
+main section .article > .title {
+  /* main text "대표이미지 & 상세페이지 다운 */
+  color: var(--black);
+  text-align: center;
+  font-family: var(--mont);
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 95.08px; /* 190.16% */
+  letter-spacing: 1px;
+}
+
+main section .article > .subtitle {
+  /* main text "필요한 사진만 똑똑하게!" */
+  color: #3D3D3D;
+  text-align: center;
+  font-family: var(--noto);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 4.2px;
+}
+
+
+/* ---input form--- */
+form .inputURL {
+  /* input(url) organize */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  
+  margin-top: 70px;
+}
+
+form .inputURL > span input[type="text"][class="inputBox"] {
+  /* input(url) "링크 or 상품코드" style */
+  height: 55px;
+  width: 490px;
+  padding-left: 20px;
+  padding-right: 80px;
+  /* margin-left: 55px; */
+  /* margin-right: 130px; */
+  border-radius: 32px;
+  background: #FFF;
+  box-shadow: 3px 4px 17.4px -5px rgba(170, 170, 204, 0.50), 5px 5px 10px 0px rgba(170, 170, 204, 0.25), -5px -5px 10px 0px rgba(255, 255, 255, 0.50);
+  color: var(--black);
+  font-family: var(--noto);
+  font-size: 18px;
+}
+
+form .inputURL > span input[type="button"][class="startBtn"] {
+  /* input(url) btn "시작!" style */
+  cursor: pointer;
+  width: 118px;
+  height: 55px;
+  flex-shrink: 0;
+  margin-left: -50px;
+  /* margin-right: 40px; */
+  border-radius: 32px;
+  background: var(--green);
+  box-shadow: 3px 4px 17.4px -5px rgba(170, 170, 204, 0.50), 5px 5px 10px 0px rgba(170, 170, 204, 0.25), -5px -5px 10px 0px rgba(255, 255, 255, 0.50);
+  color: #FFF;
+
+  text-align: center;
+  font-family: var(--mont);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 125% */
+  letter-spacing: -1.92px;
+}
+
+/* ---input form Option--- */
+form > .inputOption {
+  /* input(option) organize */
+  /* display: flex; */
+  /* align-items: center; */
+  /* text-align: center; */
+
+  margin-top: 13px;
+  /* margin-left: -10px; */
+  /* text-align: left; */
+  /* gap: 10px; */
+}
+form > .inputOption > div > span {
+  background-color: gray;
+  display: block;
+}
+
+.inputOption > label[id="optionWrap"] {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+#optionInfoText {
+  font-family: var(--noto);
+  color: var(--black_light);
+  font-size: 20px;
+}
+
+form input[type="checkbox"][class="option_checkbox"] {
+  /* input(option) checkbox style */
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+form label[class="option_checkbox_text"] {
+  /* input(option) text "썸네일 포함" (+etc) style */
+  display: flex;
+  font-family: var(--noto);
+  color: var(--black_light);
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 146.667% */
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+/* ---hover text (info_text) --- */
+form > .inputOption label[class="info_text_label"] {
+  /* infotext(hover) organize */
+  position: relative;
+  display: flex;
+}
+
+form > .inputOption label[class="info_text_label"] > svg.ico_more_info {
+  /* input(option) svg(information) style */
+  position: relative;
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+  margin-right: 25px;
+}
+
+form > .inputOption label[class="info_text_label"] p {
+  /* info_text speech bubble + text style */
+  position: absolute;
+  top: 30px;
+  left: -280%;
+  padding: 10px;
+  border-radius: 18px;
+
+  width: max-content; 
+  height: min-content;
+  color: var(--black_light);
+  background-color: var(--green_light);
+  font-size: 15px;
+  line-height: 19px;
+  text-align: left;
+  display: none;
+}
+
+form > .inputOption label[class="info_text_label"] p::after {
+  /* info_text speech bubble : triangle */
+  content: '';
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  border-bottom: 20px solid var(--green_light);
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+}
+
+#info_text_label_1 > p::after {
+  margin-left: 15px;
+}
+
+form > .inputOption label[class="info_text_label"] > .ico_more_info:hover + .info_text {
+  /* hover option */
+  display: block;
+}
+
+
+form .inputOption label[for="filename_input_area"] {
+  /* input(option) input-file name style organize */
+  display: flex;
+  align-items: center;
+}
+
+form .inputOption label[for="filename_input_area"] p {
+  /* input(option) text "또는" style */
+  position: relative;
+  color: var(--gray);
+  font-family: "Noto Sans KR";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  margin-left: -10px;
+  margin-right: 15px;
+}
+
+form .inputOption label[for="filename_input_area"] > input[type="text"] {
+  /* input(option) input-file name style */
+  width: 130px;
+  height: 32px;
+  flex-shrink: 0;
+  border-color: var(--black);
+  border-radius: 32px;
+  background: var(--gray_light);
+  padding-left: 10px;
+  padding-right: 48px;
+  margin-top: 2px;
+}
+
+
+section.downloadInfo > div {
+  /* downloadInfo Area */
+  text-align: center;
+  width: max-content;
+  position: relative;
+  align-items: center;
+  border: #000000;
+  background-color: #1d1d20;
+
+}
+
+
+.imgDownArea{
+  /* imgDownArea organize */
+  text-align: center;
+  margin-top: 65px;
+}
+
+
+
+.imgDownBtn {
+  /* image download btn "다운로드!" style */
+  cursor: pointer;
+  
+  width: 350px;
+  height: 55px;
+  flex-shrink: 0;
+
+  display: none;
+
+  border-radius: 32px;
+  background: var(--green);
+  box-shadow: 3px 4px 17.4px -5px rgba(170, 170, 204, 0.50), 5px 5px 10px 0px rgba(170, 170, 204, 0.25), -5px -5px 10px 0px rgba(255, 255, 255, 0.50);
+  color: #FFF;
+
+  text-align: center;
+  font-family: var(--mont);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 125% */
+}
+
+
+.loader {
+  /* loading bar style */
+  position: absolute;
+  left:0;
+  right:0; 
+  margin-left:auto;
+  margin-right:auto; 
+  width: 120px;
+  height: 20px;
+
+  display: none;
+
+  mask: none;
+  -webkit-mask: linear-gradient(90deg,#000 70%,#0000 0) left/20% 100%;
+  background:
+   linear-gradient(var(--green) 0 0) left -25% top 0 /20% 100% no-repeat
+   #ddd;
+  animation: l7 0.4s infinite steps(6);
+}
+@keyframes l7 {
+    100% {background-position: right -25% top 0}
+}
