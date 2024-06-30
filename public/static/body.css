@@ -376,37 +376,8 @@ section.downloadInfo > div {
     100% {background-position: right -25% top 0}
 }
 
-/* division line */
-.division-line {
-  margin-top: 300px;
-  margin-bottom: 40px;
-  text-align: center;
-}
-.division-line hr {
-  display: inline-flex;
-  width: 150px;
-  height: 1px;
-  /* border-radius: 30%; */
-  background-color: var(--gray);
-}
 
-/* instruction section */
-.instruction-wrap {
-  
-  margin-bottom: 100px;
-  display: flex;
-  justify-content: center;
-  gap: 2%; 
-  
-}
-
-.instruction-wrap ul {
-  font-size: 15px;
-  font-family: var(--noto);
-  color: var(--black_light);
-}
-
-/* 바뀐 부분: 다운로드 상태 메시지 스타일 추가 */
+/* 다운로드 상태 메시지 스타일 추가 */
 #downloadStatus {
   color: var(--black);
   font-size: 18px;
@@ -418,4 +389,60 @@ section.downloadInfo > div {
 }
 .fade-out {
   opacity: 0; /* 바뀐 부분: 서서히 사라지도록 */
+}
+
+
+/* division line */
+.division-line {
+  margin-top: 250px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.division-line hr {
+  display: inline-flex;
+  width: 150px;
+  height: 1px;
+  /* border-radius: 30%; */
+  background-color: var(--gray);
+}
+
+
+/* 바뀐 부분: 약관 내용 스타일 추가 */
+.terms-wrap {
+  font-family: var(--noto);
+  color: var(--black);
+  font-size: 14px;
+  margin-top: -20px;
+  margin-bottom: 40px;
+  text-align: left;
+  line-height: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.terms {
+  max-width: 680px; /* 최대 너비 설정 */
+  margin: 0 auto; /* 중앙 정렬 */
+}
+
+.terms li:first-child {
+  font-size: 15pt;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+
+/* instruction section */
+.instruction-wrap {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 2%; 
+  
+}
+
+.instruction-wrap ul {
+  font-size: 15px;
+  font-family: var(--noto);
+  color: var(--black_light);
 }
