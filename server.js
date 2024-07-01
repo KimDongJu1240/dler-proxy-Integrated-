@@ -7,7 +7,7 @@ import cors_proxy from './proxyServer/cors-anywhere/lib/cors-anywhere.js';
 
 // __dirname 및 __filename 설정
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const appPort = process.env.PORT || 4000;
+const appPort = process.env.PORT || 5000;
 
 // Express 애플리케이션 생성
 const app = express();
