@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /proxy/
+Sitemap: https://detailimagedown.com/sitemap.xml
