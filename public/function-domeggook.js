@@ -2,7 +2,7 @@ import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 import cheerio from 'https://cdn.jsdelivr.net/npm/cheerio@1.0.0-rc.12/+esm';
 
 // var cors_api_url = 'http://43.202.119.162/'; //for deploy
-var cors_api_url = 'https://www.detailimagedown.com/proxy/'; //for local test
+var cors_api_url = 'https://detailimagedown.com/proxy/'; //for local test
 
 class GetInfo {
     constructor(inputURL) {
