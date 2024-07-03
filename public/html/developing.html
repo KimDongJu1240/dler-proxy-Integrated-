@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3800363655623089" crossorigin="anonymous"></script>
+
+    <title>Under Development</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 2%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            width: 90%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pic1 {
+            max-width: 40%;
+            height: auto;
+            margin-bottom: 2%;
+        }
+
+        .text-container {
+            margin-top: 2%;
+            position: relative;
+            width: 100%;
+        }
+
+        .pic2 {
+            max-width: 15%;
+            height: auto;
+            position: absolute;
+            top: -5%;
+            left: 5%;
+            z-index: 0;
+        }
+
+        .text1, .text2 {
+            margin-top: 2%;
+            font-size: 1.5rem; /* 기본 글자 크기 설정 */
+            font-size: calc(1.5rem + 0.5vw); /* 뷰포트 너비에 따라 글자 크기 조정 */
+            color: #333;
+            position: relative;
+            z-index: 1;
+        }
+
+        .text2 {
+            margin-bottom: 2%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="/static/img/typingimg.webp" alt="Developer at work" class="pic1">
+        <div class="text-container">
+            <img src="/static/img/someCH.png" alt="Oops Character" class="pic2">
+            <div class="text1">Oops! This page is still under development.<br>We'll be launching soon, so please stay tuned.</div>
+            <div class="text2">죄송합니다. 아직 개발 중에 있습니다.<br>빠르게 완료하겠습니다.</div>
+            <!-- <div class="text2">In the meantime, why not enjoy the game below?</div> -->
+        </div>
+    </div>
+</body>
+</html>

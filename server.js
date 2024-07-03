@@ -27,7 +27,11 @@ app.get('/domeggook', (req, res) => {
 });
 
 app.get('/1688', (req, res) => {
-    res.sendFile(path.join(__dirname, '/public/html/index-1688.html'));
+    res.sendFile(path.join(__dirname, '/public/html/developing.html'));
+});
+
+app.get('/developing', (req, res) => {
+    res.sendFile(path.join(__dirname, '/public/html/developing.html'));
 });
 
 app.get('/health-check', (req, res) => {
