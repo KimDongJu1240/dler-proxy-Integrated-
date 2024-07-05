@@ -62,7 +62,8 @@ class GetInfo {
             indexNum: 1,
             src: cors_api_url + thumbImageSrc,
         });
-        // console.log(`imgList = \n${JSON.stringify(imgList, null, 2)}`); for monitor
+        // console.log(`imgList = \n${JSON.stringify(imgList, null, 2)}`); //for monitor
+        console.log($element.attr('src')) //for monitor
         return imgList;
     }
 }
