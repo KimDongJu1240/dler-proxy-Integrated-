@@ -319,14 +319,22 @@ label[for="filename_input_area"] > input[type="text"] {
 #addFormBtn {
   display: block;
   margin: 20px auto; /* 여기서 위치 조절 */
-  width: 50px; /* 여기서 크기 조절 */
-  height: 50px; /* 여기서 크기 조절 */
-  background-color: var(--green);
-  color: #fff;
-  font-size: 30px;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
+  width: 200px;
+  height: 55px;
+  border-radius: 32px;
+  background: var(--green);
+  box-shadow: 3px 4px 17.4px -5px rgba(170, 170, 204, 0.50), 5px 5px 10px 0px rgba(170, 170, 204, 0.25), -5px -5px 10px 0px rgba(255, 255, 255, 0.50);
+  color: #FFF;
+
+  text-align: center;
+  font-family: var(--mont);
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 40px; /* 125% */
+  letter-spacing: -0.5px;
 }
 
 

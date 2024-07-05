@@ -1,8 +1,8 @@
 import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 import cheerio from 'https://cdn.jsdelivr.net/npm/cheerio@1.0.0-rc.12/+esm';
 
-// var cors_api_url = 'http://localhost:4000/proxy'; //for local test
-var cors_api_url = 'https://detailimagedown.com/proxy/'; //for deploy
+const node_server_url = 'https://detailimagedown/fetch-data'; 
+const cors_api_url = 'https://detailimagedown.com/proxy/'; 
 
 class GetInfo {
     constructor(inputURL) {
@@ -10,9 +10,12 @@ class GetInfo {
     }
 
     async getHTML() {
-        console.log("getHTML");
-        var html = await axios.get(cors_api_url + this.inputURL);
-        var $ = cheerio.load(html.data, { xmlMode: true });
+        // console.log("getHTML");
+        const response = await axios.get(node_server_url, {
+            params: { url: this.inputURL }
+        });
+
+        const $ = cheerio.load(response.data);
         console.log('cheerio');
         return $;
     }
@@ -26,7 +29,6 @@ class GetInfo {
     async getImgSrc(htmlData) {
         const $ = htmlData;
         const thumbImageSrc = $("#lThumbImgWrap").find('img').attr('src');
-        const $element = $("#lInfoView > .lInfoViewItemContents img");
         const imgList = [];
         const $checkNoticeImg = $('#lInfoView > .lInfoViewNoticeWrap .lInfoViewNoticeTd img');
         console.log($checkNoticeImg.length);
@@ -44,13 +46,17 @@ class GetInfo {
             console.log("Notice Img don't exist");
         }
 
-        $element.each((idx, node) => {
+        // 바뀐 부분: lInfoViewItemContents 안의 contentsBuffer 내용 가져오기
+        const textareaContent = $('#lInfoViewItemContents #contentsBuffer').val();
+        const $$ = cheerio.load(textareaContent); // textarea 내용 파싱
+
+        $$('img').each((idx, node) => {
             const detailImgSrc = $(node).attr('src');
             const parentData = $(node).parent().parent().parent().parent().attr('class');
             if (parentData == 'lInfoViewItemContents' || parentData === undefined) {
                 console.log(`${detailImgSrc} => class name is {${parentData}}`);
                 imgList.push({
-                    type: `detailImg`,
+                    type: 'detailImg',
                     indexNum: idx,
                     src: cors_api_url + detailImgSrc
                 });
@@ -62,8 +68,8 @@ class GetInfo {
             indexNum: 1,
             src: cors_api_url + thumbImageSrc,
         });
-        // console.log(`imgList = \n${JSON.stringify(imgList, null, 2)}`); //for monitor
-        console.log($element.attr('src')) //for monitor
+
+        // console.log(`imgList = \n${JSON.stringify(imgList, null, 2)}`); // for monitor
         return imgList;
     }
 }
