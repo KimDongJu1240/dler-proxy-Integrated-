@@ -1,7 +1,7 @@
 import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 import cheerio from 'https://cdn.jsdelivr.net/npm/cheerio@1.0.0-rc.12/+esm';
 
-const node_server_url = 'https://detailimagedown/fetch-data'; 
+const node_server_url = 'https://detailimagedown.com/fetch-data'; 
 const cors_api_url = 'https://detailimagedown.com/proxy/'; 
 
 class GetInfo {
