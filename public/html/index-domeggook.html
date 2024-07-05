@@ -82,68 +82,72 @@
                     <div class="subtitle">필요한 사진만 똑똑하게!</div>    
                 </div>
             </section>
+            <div id="formContainer">
+                <div class="inputForm">
+                    <form>
+                        <div class="inputURL">
+                            <span><input type="text" class="inputBox" id="inputUrlBox1" placeholder="링크 or 상품코드"></span>
+                            <span><input type="button" class="startBtn" id="startBtn1" value="시작!"></span>
+                        </div>
 
-            <form>
-                <div class="inputURL">
-                    <span><input type="text" class="inputBox" id="inputUrlBox" placeholder="링크 or 상품코드"></span>
-                    <span><input type="button" class="startBtn" id="startBtn" value="시작!"></span>
-                </div>
+                        <div class="optionContainer">
+                            <label for="imgSelect" id="optionWrap">
+                                <p id="optionInfoText">포함시킬 사진</p>   
+                                <input type="checkbox" id="checkbox-thumb1" class="option_checkbox">
+                                <label for="checkbox-thumb" class="option_checkbox_text">썸네일 포함</label>   
 
-                <div class="optionContainer">
-                    <label for="imgSelect" id="optionWrap">
-                        <p id="optionInfoText">포함시킬 사진</p>   
-                        <input type="checkbox" id="checkbox-thumb" class="option_checkbox">
-                        <label for="checkbox-thumb" class="option_checkbox_text">썸네일 포함</label>   
+                                <label for="info_text_label" class="info_text_label" id="info_text_label-thumbImg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="ico_more_info">
+                                        <path class="infoIcon" id="thumbImgPath" fill="#9DA9B8" d=""/>
+                                    </svg>
+                                    <p class="info_text">대표 이미지를 포함하여<br>다운로드합니다.</p>
+                                </label>
+                                
+                                <input type="checkbox" id="checkbox-noticeImg1" class="option_checkbox">
+                                <label for="checkbox-noticeImg" class="option_checkbox_text">공급사 공지 이미지 포함</label> 
 
-                        <label for="info_text_label" class="info_text_label" id="info_text_label-thumbImg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="ico_more_info">
-                                <path class="infoIcon" id="thumbImgPath" fill="#9DA9B8" d=""/>
-                            </svg>
-                            <p class="info_text">대표 이미지를 포함하여<br>다운로드합니다.</p>
-                        </label>
-                        
-                        <input type="checkbox" id="checkbox-noticeImg" class="option_checkbox">
-                        <label for="checkbox-noticeImg" class="option_checkbox_text">공급사 공지 이미지 포함</label> 
+                                <label for="info_text_label" class="info_text_label" id="info_text_label-noticeImg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="ico_more_info">
+                                        <path class="infoIcon" id="noticeImgPath" fill="#9DA9B8" d=""/>
+                                    </svg>
+                                    <p class="info_text">공급사 공지 사진을 포함하여<br>다운로드합니다. (주로 직구 상품)</p>
+                                </label>
+                            </label> 
 
-                        <label for="info_text_label" class="info_text_label" id="info_text_label-noticeImg">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="ico_more_info">
-                                <path class="infoIcon" id="noticeImgPath" fill="#9DA9B8" d=""/>
-                            </svg>
-                            <p class="info_text">공급사 공지 사진을 포함하여<br>다운로드합니다. (주로 직구 상품)</p>
-                        </label>
-                    </label> 
+                            <label for="preference" id="optionWrap">
+                                <p id="optionInfoText">다운로드 설정</p>   
 
-                    <label for="preference" id="optionWrap">
-                        <p id="optionInfoText">다운로드 설정</p>   
+                                <input type="checkbox" id="checkbox-fileName1" class="option_checkbox"> 
+                                <label for="checkbox-fileName" class="option_checkbox_text">상품명.zip으로 저장</label>   
+                                <label for="info_text_label" class="info_text_label" id="info_text_label-fileName">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="ico_more_info">
+                                        <path class="infoIcon" id="fileNamePath" fill="#9DA9B8" d=""/>
+                                    </svg>
+                                    <p class="info_text">도매 사이트의 상품 이름으로<br>파일명을 저장합니다.</p>
+                                </label>
 
-                        <input type="checkbox" id="checkbox-fileName" class="option_checkbox"> 
-                        <label for="checkbox-fileName" class="option_checkbox_text">상품명.zip으로 저장</label>   
-                        <label for="info_text_label" class="info_text_label" id="info_text_label-fileName">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none" class="ico_more_info">
-                                <path class="infoIcon" id="fileNamePath" fill="#9DA9B8" d=""/>
-                            </svg>
-                            <p class="info_text">도매 사이트의 상품 이름으로<br>파일명을 저장합니다.</p>
-                        </label>
+                                <label for="filename_input_area">
+                                    <p class="text-1">또는</p>
+                                    <input type="text" class="inputFileName" id="inputFileName1" placeholder="파일 이름 입력 (클릭)">
+                                    <p class="text-2" style="left: -26px;">.zip</p>
+                                </label>
+                            </label>
+                        </div>
 
-                        <label for="filename_input_area">
-                            <p class="text-1">또는</p>
-                            <input type="text" class="inputFileName" id="inputFileName" placeholder="파일 이름 입력 (클릭)">
-                            <p class="text-2" style="left: -26px;">.zip</p>
-                        </label>
-                    </label>
-                </div>
+                    </form>
+            
 
-            </form>
-
-            <section class="imgDownArea">
-                <div class="parsingLoader" id="parsingLoader"></div>
-                <div class="imgDown">
-                    <div><input type="button" class="imgDownBtn" id="imgDownBtn" value="다운로드!"></div>
-                    <!-- 바뀐 부분: 상태 메시지를 추가합니다. -->
-                    <div id="downloadStatus" class="hidden"></div>
-                </div>
-            </section>
-        </div>
+                    <section class="imgDownArea">
+                        <div class="parsingLoader" id="parsingLoader1"></div>
+                        <div class="imgDown">
+                        <div><input type="button" class="imgDownBtn" id="imgDownBtn1" value="다운로드!"></div>
+                        <div id="downloadStatus1" class="hidden"></div>
+                        </div>
+                    </section>
+                </div> 
+            </div> 
+            <button id="addFormBtn">+</button> <!-- 여기에 위치 조절 -->
+        </div> 
 
         <section>
             <div class="division-line"><hr></div>

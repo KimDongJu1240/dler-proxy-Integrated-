@@ -309,6 +309,28 @@ label[for="filename_input_area"] > input[type="text"] {
   margin-top: 2px;
 }
 
+
+/* 입력 폼 컨테이너 스타일 */
+#formContainer .inputForm {
+  margin-bottom: 20px; /* 여기서 높이 조절 */
+}
+
+/* 추가 버튼 스타일 */
+#addFormBtn {
+  display: block;
+  margin: 20px auto; /* 여기서 위치 조절 */
+  width: 50px; /* 여기서 크기 조절 */
+  height: 50px; /* 여기서 크기 조절 */
+  background-color: var(--green);
+  color: #fff;
+  font-size: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+
 section.downloadInfo > div {
   /* downloadInfo Area */
   text-align: center;
