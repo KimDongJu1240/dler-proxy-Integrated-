@@ -31,7 +31,7 @@ function setSvgPaths(formId) {
 }
 
 async function addNewForm() {
-  if (formCount >= maxForms) return;
+  // if (formCount >= maxForms) return;
 
   formCount++;
   const formContainer = document.getElementById('formContainer');
@@ -52,12 +52,24 @@ function addEventListeners(formId) {
   console.log(`Adding event listeners for form ID: ${formId}`);
   const startBtn = document.getElementById(`startBtn${formId}`);
   startBtn.addEventListener('click', async function getImg() {
-    console.time(`form${formId}`);
-    document.getElementById(`imgDownBtn${formId}`).style.display = 'none';
-    document.getElementById(`parsingLoader${formId}`).style.display = 'inline-block';
-    document.getElementById(`downloadStatus${formId}`).classList.add('hidden');
-
     let inputData = document.getElementById(`inputUrlBox${formId}`).value;
+
+    // 조건 1: 공백인 경우
+    if (!inputData.trim()) {
+      handleError(`formID -> ${formId}, 빈 값`, formId);
+      return;
+    }
+
+    // 조건 2: 숫자가 포함되지 않은 경우
+    if (!/\d/.test(inputData)) {
+      handleError(`formID -> ${formId}, 숫자가 포함되지 않음`, formId);
+      return;
+    }
+
+    console.time(`form${formId}`);
+
+    
+
     console.log(`Input URL data for form ID ${formId}: ${inputData}`);
     const productCode = getNumInString(inputData);
     console.log(`Product code for form ID ${formId}: ${productCode}`);
@@ -65,13 +77,47 @@ function addEventListeners(formId) {
     const inputURL = `https://domeggook.com/${productCode}`;
     console.log(`입력된 URL for form ID ${formId} => ${inputURL}\n`);
 
+    // 조건 3: 정상적인 링크 형태가 아닌 경우
+    if (inputURL == 'https://domeggook.com/') {
+      handleError(`formID -> ${formId}, 정상적인 링크 형태가 아님`, formId);
+      return;
+    }
+
+    document.getElementById(`imgDownBtn${formId}`).style.display = 'none';
+    document.getElementById(`parsingLoader${formId}`).style.display = 'inline-block';
+    document.getElementById(`downloadStatus${formId}`).classList.add('hidden');
+
     const webData = new GetInfo(inputURL);
+    const response = await webData.getHTMLResponse();
+
+    // 조건 4: 응답 상태 코드가 정상적이지 않은 경우
+    if (response.status !== 200 || !response.data) {
+      handleError(`formID -> ${formId}, 응답 상태 코드 비정상`, formId);
+      return;
+    }
+
     const $ = await webData.getHTML();
     console.log(`typeof = ${typeof $}`);
     console.log($);
     const productName = await webData.getProductName($);
-    const imgList = await webData.getImgSrc($);
 
+    const getImgSrcSafely = async (webData, $) => {
+      try {
+        return await webData.getImgSrc($);
+      } catch (error) {
+        if (error.message.includes('cheerio.load() expects a string')) {
+          handleError(`formID -> ${formId}, 유효하지 않은 도매꾹 상품`, formId);
+          return null;
+        } else {
+          console.error(`Error in form ID ${formId}:`, error);
+          return null;
+        }
+      }
+    };
+    
+    const imgList = await getImgSrcSafely(webData, $);
+    if (imgList === null) return; // -> 이미 catch로 빠졌음
+    
     console.log(`제품명 = ${productName}`);
 
     const downloadBtn = document.getElementById(`imgDownBtn${formId}`);
@@ -119,6 +165,34 @@ function addEventListeners(formId) {
     this.style.textDecoration = '';
   });
 }
+
+function handleError(message, formId) {
+  console.log(message);
+  document.getElementById(`parsingLoader${formId}`).style.display = 'none';
+
+  const inputBox = document.getElementById(`inputUrlBox${formId}`);
+  const errorMsg = document.getElementById(`errorMsg${formId}`);
+
+  inputBox.setAttribute('style', 'border: 1px solid red !important;');
+  errorMsg.classList.remove('hidden');
+  errorMsg.style.opacity = 1;
+
+  setTimeout(() => {
+    // 원래 스타일로 서서히 복원
+    let borderColorChange = setInterval(() => {
+      if (inputBox.style.borderColor !== 'black') {
+        inputBox.setAttribute("style", "border: '';"); // 원래 스타일로 복원
+        clearInterval(borderColorChange);
+      }
+    }, 50); // 50ms마다 확인
+
+    errorMsg.style.opacity = 0;
+    setTimeout(() => {
+      errorMsg.classList.add('hidden');
+    }, 1000);
+  }, 3000);
+}
+
 
 async function downZipFile(imgList, productName, formId) {
   let zipName = '';

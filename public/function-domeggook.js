@@ -4,17 +4,25 @@ import cheerio from 'https://cdn.jsdelivr.net/npm/cheerio@1.0.0-rc.12/+esm';
 const node_server_url = 'https://detailimagedown.com/fetch-data'; 
 const cors_api_url = 'https://detailimagedown.com/proxy/'; 
 
+// const node_server_url = 'http://localhost:4000/fetch-data'; //for test
+// const cors_api_url = 'http://localhost:4000/proxy/'; //for test
+
 class GetInfo {
     constructor(inputURL) {
         this.inputURL = inputURL;
     }
 
-    async getHTML() {
-        // console.log("getHTML");
+    // #바뀐 부분: getHTMLResponse 메서드 추가
+    async getHTMLResponse() {
         const response = await axios.get(node_server_url, {
             params: { url: this.inputURL }
         });
+        return response;
+    }
 
+    async getHTML() {
+        // #바뀐 부분: getHTMLResponse 메서드 사용
+        const response = await this.getHTMLResponse();
         const $ = cheerio.load(response.data);
         console.log('cheerio');
         return $;

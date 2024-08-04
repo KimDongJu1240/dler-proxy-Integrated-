@@ -7,6 +7,7 @@
   --gray_light:#F5F5F6;
   --black:#000000;
   --black_light: #1d1d20;
+  --red_light:#ffe5e5;
   --mont: 'Montserrat', sans-serif;
   --noto: 'Noto Sans KR', sans-serif;
 }
@@ -153,7 +154,7 @@ form .inputURL > span input[type="button"][class="startBtn"] {
   /* input(url) btn "시작!" style */
   cursor: pointer;
   width: 118px;
-  height: 55px;
+  height: 56px;
   flex-shrink: 0;
   margin-left: -50px;
   /* margin-right: 40px; */
@@ -309,10 +310,41 @@ label[for="filename_input_area"] > input[type="text"] {
   margin-top: 2px;
 }
 
-
 /* 입력 폼 컨테이너 스타일 */
 #formContainer .inputForm {
   margin-bottom: 20px; /* 여기서 높이 조절 */
+}
+
+/* 입력 데이터 오류 관련 */
+.errorMsg {
+  position: absolute;
+  color: var(--black);
+  background-color: var(--red_light);
+  padding: 10px;
+  border-radius: 19px;
+  border-color: black;
+  left: 239px;
+  margin-top: -58px;
+  opacity: 0;
+  transition: opacity 1s ease-out; /* 서서히 사라지는 애니메이션 */
+  z-index: 101; /* 말풍선 위로 오도록 z-index 추가 */
+
+  width: max-content; 
+  height: min-content;
+  font-size: 15px;
+  line-height: 19px;
+  text-align: left;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 39px;
+    left: 11%;
+    border-top: 12px solid var(--red_light);
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+}
+
 }
 
 /* 추가 버튼 스타일 */
@@ -369,7 +401,7 @@ section.downloadInfo > div {
 
   /* use */
   display: none; 
-
+  margin-top: -44px;
   border-radius: 32px;
   background: var(--green);
   box-shadow: 3px 4px 17.4px -5px rgba(170, 170, 204, 0.50), 5px 5px 10px 0px rgba(170, 170, 204, 0.25), -5px -5px 10px 0px rgba(255, 255, 255, 0.50);
@@ -389,7 +421,8 @@ section.downloadInfo > div {
   left:0;
   right:0; 
   margin-left:auto;
-  margin-right:auto; 
+  margin-right:auto;
+  margin-top: -45px; 
   width: 120px;
   height: 20px;
 
